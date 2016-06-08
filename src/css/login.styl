@@ -1,0 +1,115 @@
+
+@import './def.styl'
+@import './bootstrap.styl'
+
+html
+    height: 100%
+
+
+.login-container
+    margin-top: 136px
+    height: 382px
+    background: $-base-color
+
+.main-container
+    width: 960px
+    overflow: hidden
+    margin: 0 auto
+.login-tip
+    width: 610px
+    float: left
+    color: #fff
+    h2
+        font-size: 45px
+        margin-top: 133px
+        margin-left: 60px
+    p
+        font-size: 25px
+        margin-top: 30px
+        margin-left: 176px
+        &:before
+            content: '——'
+            letter-spacing: -6px
+            margin-right: 4px
+
+.login-panel
+    margin-left: 610px
+    margin-top: 35px
+    height: 312px
+    border-radius: 9px
+    background: #fff
+    box-sizing: border-box
+    padding: 39px 40px 0 55px
+    .tab
+        list-style: none
+        border-bottom: 1px solid #ebeaeb
+        line-height: 32px
+        font-size: 18px
+        color: $-base-color
+        padding: 0 2px
+        text-align: center
+        li
+            display: inline-block
+            color: #8b8c93
+            cursor: pointer
+            &:first-child
+                margin-right: 44px
+        &:hover
+            color: $-base-color
+        .cur
+            color: $-base-color
+            border-bottom: 2px solid $-base-color
+
+.btn-submit
+    color: #fff
+    background-color: $-btn-color
+    border: none
+    &:hover
+        background-color: darken($-btn-color, 20%)
+a
+    &:focus,
+    &:hover
+        color: darken($-base-color, 10%)
+.btn-submit
+    display: block
+    width: 100%
+    font-size: 16px
+    padding: 4px 30px
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus
+        color: #fff
+
+
+.form-search
+    .form-group
+        margin-top: 25px
+        margin-bottom: 0
+        position: relative
+    .form-control
+        text-indent: 1.5em
+    .glyphicon-user,
+    .glyphicon-lock
+        color: $-base-color
+        position: absolute
+        left: 10px
+        top: 10px
+    .group-password
+        margin-top: 11px
+    .checkbox
+        margin-top: 24px
+        color: #bcbbbb
+.forgot-password
+    float: right
+    color: #bcbbbb
+
+.login-error
+    line-height: 30px
+    color: #a94442
+    display: none
+
+body.ready
+    .login-error
+        display: block
+

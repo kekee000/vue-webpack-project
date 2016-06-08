@@ -1,0 +1,90 @@
+
+
+.nav-login
+    display: none
+
+body.ready
+    .nav-login
+        display: block
+
+
+.form-search
+    float: right
+    .form-control
+        text-indent: 1.5em
+    .glyphicon-search
+        color: #666
+        position: relative
+        right: -30px
+        vertical-align: -2px
+
+// loading 提示
+.loading
+    position: fixed
+    top: -100px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 10000
+    padding: 15px
+    font-size: 16px
+    border: 1px solid transparent
+    border-radius: 4px
+    transition: top 0.2s ease
+    color: #8a6d3b
+    background-color: #fcf8e3
+    border-color: #faebcc
+    box-shadow: 1px 1px 5px #ccc
+
+    &[data-status="error"]
+        color: #a94442
+        background-color: #f2dede
+        border-color: #ebccd1
+
+    &.show
+        top: 30%
+
+// 页面加载 loading 动画
+.page-loading
+    display: block
+    margin: 0px auto
+    font-size: 40px
+    width: 40px
+    height: 40px
+    color: #ccc
+    animation: page-loading-animate 1s infinite linear
+    -webkit-animation: page-loading-animate 1s infinite linear
+
+@keyframes page-loading-animate {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+// 已经修改过的动画
+.row-modified
+    animation: modified-animate 0.2s 2 linear
+    -webkit-animation: modified-animate 0.2s 2 linear
+
+@keyframes modified-animate {
+    50% {
+        background-color: rgba(27, 216, 150, 0.3)
+    }
+}
+
+// select2
+.select2-container--default
+    .select2-selection--multiple
+        border: 1px solid #CECED1;
+        .select2-selection__choice
+            background-color: #fff
+            border: 1px solid #ccc
+        .select2-selection__choice__remove
+            vertical-align: 1px
+    .select2-results__option[aria-selected=true]
+        background-color: #eee
+    .select2-results__option--highlighted[aria-selected]
+        background-color: $-base-color
+

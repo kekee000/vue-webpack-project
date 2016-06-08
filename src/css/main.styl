@@ -1,0 +1,74 @@
+
+@import './def.styl'
+@import './bootstrap.styl'
+@import './components.styl'
+@import './table.styl'
+
+html
+    height: 100%
+body
+    padding-top: 50px
+    background-color: $-bg-color
+
+a
+    color: $-link-color
+    &:hover
+        color: $-base-color
+
+.navbar
+    border-radius: 0
+    position: fixed
+    z-index: 1000
+    top: 0
+    width: 100%
+    margin-bottom: 0
+
+.navbar-inverse
+    background-color: $-base-color
+    border: none
+    .navbar-brand
+        color: #fff
+        font-size: 24px
+        margin-left: 45px
+        span
+            font-size: 18px
+    .navbar-links
+        margin-right: 25px
+        line-height: 50px
+        >a
+            color: #fff
+            margin-left: 25px
+
+.viewport
+    margin-left: $-side-width
+
+.main-crumb
+    line-height: 32px
+    text-indent: 30px
+    color: #333
+    background: #D7EFCF
+
+.main-title
+    line-height: 80px
+    font-size: 26px
+    text-align: center
+    margin: 0 0 -15px
+    color: $-base-color
+
+.main-container
+    margin: 25px 28px 15px 30px
+    padding: 20px 30px
+    box-shadow: -1px 1px 3px #ccc,1px 1px 3px #ccc
+    background: #fff
+    border-radius: 9px
+    min-width: 800px
+
+.text-right
+    text-align: right
+
+.link-apply
+    font-size: 16px
+    color: $-base-color
+    text-decoration: underline
+    &:hover
+        color: darken($-base-color, 10%)

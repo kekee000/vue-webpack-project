@@ -1,0 +1,21 @@
+
+$-base-color = #04CA85 // 基础颜色
+$-bg-color = #FDFCFC // 背景色
+$-link-color = darken(#7b7c99, 20%) // 链接颜色
+$-font-color = #ccc //  基础文字颜色
+$-btn-color = #04CA85 // 基础按钮颜色
+$-dark-base-color = rgba(27, 216, 150, 80) // 基础背景
+$-nav-height = 50px // nav 高度
+$-side-width = 185px // 边栏宽度
+
+clearfix()
+  zoom 1
+  &:after
+  &:before
+    content ""
+    display table
+  &:after
+    clear both
+
+.clearfix
+    clearfix()

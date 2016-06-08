@@ -1,0 +1,124 @@
+// bootstrap 扩展样式
+
+body
+    height: 100%
+    min-width: 960px
+    font-size: 15px
+    font-family: 'Helvetica Neue','Microsoft Yahei',Helvetica,Arial,sans-serif
+
+a
+    &:focus,
+    &:hover
+        color: darken($-base-color, 10%)
+
+em
+  font-style: normal;
+  color: darken($-base-color, 10%)
+
+$-gap-small = 10px
+
+.gap
+    margin: 1.5 * $-gap-small
+
+.gap-small
+    margin: $-gap-small
+
+for $i in (left right top bottom)
+    .gap-{$i}
+            margin-{$i}: 1.5 * $-gap-small
+    .gap-{$i}-fit
+            margin-{$i}: -1.5 * $-gap-small
+    .gap-{$i}-small
+        margin-{$i}: $-gap-small
+    .gap-{$i}-small-fit
+        margin-{$i}: -$-gap-small
+    .gap-{$i}-large
+        margin-{$i}: 4 * $-gap-small
+
+.btn-groups
+    padding: 15px 0
+    clearfix()
+
+.btn-light
+    color: #fff
+    background-color: #fa782a
+    border: none
+    &:hover
+        background-color: darken(#fa782a, 10%)
+
+.btn-dark
+    color: #fff
+    background-color: $-btn-color
+    border: none
+    &:hover
+        background-color: darken($-btn-color, 20%)
+
+.btn-dark,
+.btn-light
+    font-size: 16px
+    padding: 4px 30px
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus
+        color: #fff
+
+
+.btn-add
+    line-height: 30px
+    width: 56px
+    text-align: center
+    color: #ceced1
+    border: 1px solid #ceced1
+    display: inline-block
+    border-radius: 4px
+    font-size: 18px
+    vertical-align: middle
+    cursor: pointer
+    &:hover
+        border-color: $-base-color
+
+.btn-right
+    float: right
+
+.modal
+    .modal-dialog
+        margin: 10% auto 0
+
+.model-component
+    transition: all 0.3s ease
+.model-component.in
+    background-color: rgba(0,0,0,0.5)
+.model-component
+    .modal-form
+        margin-top: 20px
+        input.form-control
+            width: 310px
+            box-shadow: none
+
+.form-view
+    padding: 0 90px 0 30px
+
+// 使用当前主题
+.form-control:focus
+    border-color: $-base-color
+    outline: 0
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(27, 216, 150,.6)
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(27, 216, 150,.6)
+
+.form-group
+    >p
+        color: #8b8d93
+        font-size: 16px
+        line-height: 50px
+
+label
+    font-weight: normal
+
+.form-group-input
+    .small-width
+        width: 90px
+    label
+        margin: 0 6px
+        color: #8b8d93
+        font-weight: normal
