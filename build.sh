@@ -4,7 +4,7 @@ OUTPUT_PATH='./output'
 [ -d $OUTPUT_PATH ] || mkdir $OUTPUT_PATH
 rm -rf $OUTPUT_PATH/*
 
-webpack -p
+env NODE_ENV=production webpack -p
 
 # 移动
 mv ./asset $OUTPUT_PATH

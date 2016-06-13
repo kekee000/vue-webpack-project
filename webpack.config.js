@@ -12,16 +12,15 @@ module.exports = {
   output: {
     path: __dirname + '/asset',
     filename: '[name].js',
-    publicPath: 'http://localhost:8081/asset'
+    publicPath: process.env.NODE_ENV == 'production'
+      ? ''
+      : 'http://localhost:8081/asset'
   },
   devServer: {
     inline:true,
     port: 8081,
     proxy: {
       '/': 'http://127.0.0.1:8080/',
-      '/coach': 'http://127.0.0.1:8080/coach',
-      '/organization': 'http://127.0.0.1:8080/organization',
-      '/visitor': 'http://127.0.0.1:8080/visitor',
       '/login': 'http://127.0.0.1:8080/',
       '/api/*': 'http://127.0.0.1:8080/'
     },

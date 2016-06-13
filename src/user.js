@@ -28,7 +28,7 @@ module.exports = {
 
         // 用户权限
         if (role === 'user') {
-            return action == 'profile' || action.indexOf('profile:') == 0
+            return action === 'profile' || action.indexOf('profile:') == 0
         }
     }
 };

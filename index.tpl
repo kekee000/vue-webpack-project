@@ -24,7 +24,7 @@
     </div>
     <div v-if="user.role!='visitor'" class="navbar-links navbar-right nav-login">
       <span style="color: #fff">
-        <b>{{ user.userName }}</b> ({{user.role == 'admin' ? 'admin' : ''}})
+        <b>{{ user.userName }}</b> ({{user.role}})
       </span>
       <a href="/loginout">注销</a>
     </div>

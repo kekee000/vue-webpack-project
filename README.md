@@ -1,4 +1,4 @@
-#球多多项目前台
+#Vue单页面项目后台
 
 ## 开发
 
@@ -7,7 +7,12 @@ mock：edp-webserver
 
 git 地址：https://github.com/kekee000/vue-webpack-project
 
-调试：
+初始化
+
+    npm install -g webpack
+    npm install
+
+调试
 
     npm run dev
     open http://127.0.0.1:8081

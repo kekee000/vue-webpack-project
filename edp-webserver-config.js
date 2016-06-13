@@ -19,7 +19,7 @@ exports.directoryIndexes = true;
  * 模拟 smarty 模板替换
  */
 function replace(content, context) {
-    var role = context.request.pathname.match(/\/(admin|user)/)
+    var role = context.request.pathname.match(/\/(admin|user|visitor)/)
     var data = {
         appName: 'XXX',
         feRoot: feRoot,
@@ -28,6 +28,7 @@ function replace(content, context) {
                 role: role ? role[1] : 'admin'
             })
     }
+    // 仅能替换 {feRoot} 这种的模板变量
     return content.replace(/([^{])\{\$([\w.]+)\}/g, function ($0, prefix, field){
         return prefix + (data[field] || '')
     })
@@ -36,7 +37,7 @@ function replace(content, context) {
 exports.getLocations = function () {
     return [
         {
-            location: /\/(?:$|\?)/,
+            location: /\/(?:admin|user|visitor)?(?:$|\?)/,
             handler: [
                 function (context) {
                     var content = require('fs').readFileSync(documentRoot + '/index.tpl', 'utf8')
