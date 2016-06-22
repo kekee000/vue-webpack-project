@@ -1,3 +1,5 @@
+require('jsmart')
+
 // 端口
 exports.port = 8080;
 
@@ -20,18 +22,15 @@ exports.directoryIndexes = true;
  */
 function replace(content, context) {
     var role = context.request.pathname.match(/\/(admin|user|visitor)/)
-    var data = {
-        appName: 'XXX',
-        feRoot: feRoot,
-        user: JSON.stringify({
-                userName: 'admin',
-                role: role ? role[1] : 'admin'
-            })
-    }
-    // 仅能替换 {feRoot} 这种的模板变量
-    return content.replace(/([^{])\{\$([\w.]+)\}/g, function ($0, prefix, field){
-        return prefix + (data[field] || '')
+    var data = require(documentRoot + '/mock/entry')(context.request, context.response);
+    data.feRoot = feRoot
+    data.user.role = role ? role[1] : 'admin'
+
+    var render = new jSmart(content);
+    render.registerPlugin('modifier', 'json_encode', function (data) {
+        return JSON.stringify(data)
     })
+    return render.fetch(data);
 }
 
 exports.getLocations = function () {

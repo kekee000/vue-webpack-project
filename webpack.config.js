@@ -1,5 +1,6 @@
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var epr = require('./edp-rider-config');
 module.exports = {
   // entry point of our application
   entry: {
@@ -30,10 +31,13 @@ module.exports = {
       js: ''
     }
   },
+  stylus: {
+    use: [epr.stylusPlugin]
+  },
   module: {
     loaders: [
       {
-        test: /\.svg$/,
+        test: /\.(svg|ttf|woff|jpg|gif|png)$/,
         loader: 'file'
       },
       {

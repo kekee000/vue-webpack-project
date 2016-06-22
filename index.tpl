@@ -24,7 +24,7 @@
     </div>
     <div v-if="user.role!='visitor'" class="navbar-links navbar-right nav-login">
       <span style="color: #fff">
-        <b>{{ user.userName }}</b> ({{user.role}})
+        <b>{{user.userName}}</b> ({{user.role}})
       </span>
       <a href="/loginout">注销</a>
     </div>
@@ -37,7 +37,7 @@
   <script>
     window.PAGE_DATA = {
       feRoot: '{$feRoot}',
-      user: {$user}
+      user: {$user|json_encode}
     };
   </script>
   <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
