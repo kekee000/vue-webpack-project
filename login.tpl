@@ -2,15 +2,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{$appName}管理平台登录</title>
-    <link href="{$feRoot}/dep/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{$feRoot}/asset/login-css.css" rel="stylesheet">
+    <title>{%$appName%}管理平台登录</title>
+    <link href="{%$feRoot%}/dep/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{%$feRoot%}/asset/login-css.css?{version}" rel="stylesheet">
 </head>
 <body id="app">
   <div class="login-container">
     <div class="main-container">
       <div class="login-tip">
-        <h2>{$appName}管理平台</h2>
+        <h2>{%$appName%}管理平台</h2>
       </div>
       <div class="login-panel">
         <ul class='tab'>
@@ -41,7 +41,7 @@
     </div>
   </div>
   <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="{$feRoot}/dep/bootstrap/js/bootstrap.min.js"></script>
-  <script src="{$feRoot}/asset/login-js.js"></script>
+  <script src="{%$feRoot%}/dep/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{%$feRoot%}/asset/login-js.js?{version}"></script>
 </body>
 </html>

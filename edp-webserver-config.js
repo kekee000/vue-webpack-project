@@ -10,8 +10,8 @@ var feRoot = 'http://127.0.0.1:8081'
 
 // 预发布
 if (env == 'preview') {
-    var documentRoot = process.cwd() + '/output'
-    var feRoot = '.'
+    var documentRoot = process.cwd()
+    var feRoot = './output'
 }
 
 exports.documentRoot = documentRoot
@@ -25,7 +25,8 @@ function replace(content, context) {
     var data = require(documentRoot + '/mock/entry')(context.request, context.response);
     data.feRoot = feRoot
     data.user.role = role ? role[1] : 'admin'
-
+    jSmart.prototype.left_delimiter = '{%'
+    jSmart.prototype.right_delimiter = '%}'
     var render = new jSmart(content);
     render.registerPlugin('modifier', 'json_encode', function (data) {
         return JSON.stringify(data)
