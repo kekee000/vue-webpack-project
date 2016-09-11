@@ -1,6 +1,9 @@
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var epr = require('./edp-rider-config');
+
+var hostName = getIPAdress();
+
 module.exports = {
   // entry point of our application
   entry: {
@@ -15,15 +18,15 @@ module.exports = {
     filename: '[name].js',
     publicPath: process.env.NODE_ENV == 'production'
       ? ''
-      : 'http://localhost:8081/asset'
+      : 'http://' + hostName + ':8081/asset'
   },
   devServer: {
     inline:true,
     port: 8081,
     proxy: {
-      '/': 'http://127.0.0.1:8080/',
-      '/login': 'http://127.0.0.1:8080/',
-      '/api/*': 'http://127.0.0.1:8080/'
+      '/': 'http://' + hostName + ':8080/',
+      '/login': 'http://' + hostName + ':8080/',
+      '/api/*': 'http://' + hostName + ':8080/'
     },
   },
   vue: {
@@ -58,4 +61,17 @@ module.exports = {
       allChunks: true
     })
   ]
+}
+
+function getIPAdress(){
+    var interfaces = require('os').networkInterfaces();
+    for(var devName in interfaces){
+          var iface = interfaces[devName];
+          for(var i=0;i<iface.length;i++){
+               var alias = iface[i];
+               if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){
+                     return alias.address;
+               }
+          }
+    }
 }

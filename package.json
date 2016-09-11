@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "sh dev.sh",
     "build": "sh build.sh",
-    "preview": "sh dev.sh preview"
+    "preview": "sh dev.sh preview",
+    "dev-es6": "env JS_ENV=es6 sh dev.sh",
+    "build-es6": "env JS_ENV=es6 sh build.sh",
+    "preview-es6": "env JS_ENV=es6 sh dev.sh preview"
   },
   "author": "",
   "license": "ISC",

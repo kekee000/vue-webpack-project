@@ -15,13 +15,13 @@ git 地址：https://github.com/kekee000/vue-webpack-project
 调试
 
     npm run dev
-    open http://127.0.0.1:8081
+    open http://[hostname]:8081
     // 管理员
-    open http://127.0.0.1:8081/admin
+    open http://[hostname]:8081/admin
     // 用户
-    open http://127.0.0.1:8081/user
+    open http://[hostname]:8081/user
     // 游客
-    open http://127.0.0.1:8081/visitor
+    open http://[hostname]:8081/visitor
 
 编译
 
@@ -31,6 +31,12 @@ git 地址：https://github.com/kekee000/vue-webpack-project
 
     npm run  preview
     open http://127.0.0.1:8080
+
+支持es6语法配置，使用
+
+    npm run [dev|build|preview]-es6
+
+可以打开babel配置，愉快的使用es6写代码了
 
 ## 接口文档
 使用 ajax json 作为前后通信方式，返回数据格式为 ejson 格式，前后端按照ejson接口开发

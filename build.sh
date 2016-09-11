@@ -8,6 +8,12 @@ rm -rf $OUTPUT_PATH/*
 
 env NODE_ENV=production webpack -p
 
+if [ "$JS_ENV" = 'es6' ]; then
+    env NODE_ENV=production webpack -p --config=webpack-es6.config.js
+else
+    env NODE_ENV=production webpack -p
+fi
+
 # 移动
 mv ./asset $OUTPUT_PATH
 cp -r ./dep $OUTPUT_PATH
