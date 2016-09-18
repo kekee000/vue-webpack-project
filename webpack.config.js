@@ -22,6 +22,7 @@ module.exports = {
   },
   devServer: {
     inline:true,
+    host: hostName,
     port: 8081,
     proxy: {
       '/': 'http://' + hostName + ':8080/',

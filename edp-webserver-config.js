@@ -6,7 +6,7 @@ exports.port = 8080;
 // 网站根目录
 var env = process.env.NODE_ENV
 var documentRoot = process.cwd()
-var feRoot = 'http://127.0.0.1:8081'
+var feRoot = 'http://' + getIPAdress() + ':8081'
 
 // 预发布
 if (env == 'preview') {
@@ -124,4 +124,18 @@ function mockHandler() {
             context.content = fs.readFileSync(modulePath, 'utf-8');
         }
     };
+}
+
+
+function getIPAdress(){
+    var interfaces = require('os').networkInterfaces();
+    for(var devName in interfaces){
+          var iface = interfaces[devName];
+          for(var i=0;i<iface.length;i++){
+               var alias = iface[i];
+               if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){
+                     return alias.address;
+               }
+          }
+    }
 }
