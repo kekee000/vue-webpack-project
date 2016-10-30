@@ -25,6 +25,7 @@ module.exports = {
     inline:true,
     host: hostName,
     port: 8081,
+    headers: { "Access-Control-Allow-Origin": "*" },
     proxy: {
       '/': 'http://' + hostName + ':8080/',
       '/login': 'http://' + hostName + ':8080/',
