@@ -22,7 +22,7 @@ exports.directoryIndexes = true;
  */
 function replace(content, context) {
     var role = context.request.pathname.match(/\/(admin|user|visitor)/)
-    var data = require(documentRoot + '/mock/entry')(context.request, context.response);
+    var data = require(__dirname + '/mock/entry')(context.request, context.response);
     data.feRoot = feRoot
     data.user.role = role ? role[1] : 'admin'
     jSmart.prototype.left_delimiter = '{%'

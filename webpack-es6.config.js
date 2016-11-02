@@ -23,7 +23,7 @@ module.exports = {
   },
   devServer: {
     inline:true,
-    host: hostName,
+    host: '0.0.0.0',
     port: 8081,
     headers: { "Access-Control-Allow-Origin": "*" },
     proxy: {
