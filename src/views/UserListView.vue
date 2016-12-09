@@ -29,7 +29,7 @@
     </section>
 </template>
 <script>
-var datasource = require('../datasource')
+
 module.exports = {
     components: {
         LoadingStatus: require('components/LoadingStatus.vue'),
@@ -50,7 +50,7 @@ module.exports = {
     methods: {
         refresh: function () {
             var self = this;
-            datasource.get('user-list', {
+            this.$datasource.get('user-list', {
                 page: self.page,
                 query: self.query
             }).then(function (data) {
@@ -69,7 +69,7 @@ module.exports = {
                 return;
             }
             var self = this
-            datasource.post('user-del', {id: row.id})
+            this.$datasource.post('user-del', {id: row.id})
                 .then(function (data) {
                     self.list.splice(self.list.indexOf(row), 1)
                 }, function (reason) {

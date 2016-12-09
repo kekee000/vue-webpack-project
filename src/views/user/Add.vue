@@ -103,7 +103,6 @@
 <div v-if="!fields.id" style="height: 160px"></div>
 </template>
 <script>
-var datasource = require('../../datasource')
 var loading = require('../../loading')
 
 module.exports = {
@@ -160,7 +159,7 @@ module.exports = {
         },
         load: function (id) {
             var self = this
-            datasource.get('user-get', {id: id})
+            this.$datasource.get('user-get', {id: id})
                 .then(function (data) {
                     self.fill(data, self.fields)
                 }, function () {
@@ -173,7 +172,7 @@ module.exports = {
                 var self = this
                 var data = self.fill(self.fields, {})
 
-                datasource.post('user-' + (this.fields.id ? 'modify' : 'add'), data)
+                this.$datasource.post('user-' + (this.fields.id ? 'modify' : 'add'), data)
                     .then(function (data) {
                         loading.show('保存用户信息成功!', 2000)
                         self.$router.go({
