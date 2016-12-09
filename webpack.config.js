@@ -1,6 +1,7 @@
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var epr = require('./edp-rider-config');
+var path = require('path');
 
 var hostName = getIPAdress();
 
@@ -19,6 +20,12 @@ module.exports = {
     publicPath: process.env.NODE_ENV == 'production'
       ? ''
       : 'http://' + hostName + ':8081/asset'
+  },
+  resolve: {
+    alias: {
+      'src': path.resolve(__dirname, './src'),
+      'components': path.resolve(__dirname, './src/components')
+    }
   },
   devServer: {
     inline:true,

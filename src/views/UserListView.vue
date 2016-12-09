@@ -24,6 +24,7 @@
                 </tr>
             </tbody>
         </table>
+        <pager :total="total" :page="page"></pager>
         <loading-status :loading="loading" :records="list.length"></loading-status>
     </section>
 </template>
@@ -31,13 +32,15 @@
 var datasource = require('../datasource')
 module.exports = {
     components: {
-        LoadingStatus: require('../components/LoadingStatus.vue')
+        LoadingStatus: require('components/LoadingStatus.vue'),
+        Pager: require('components/Pager.vue')
     },
     data: function () {
         return {
             query: '',
             list: [],
             page: 1,
+            total: 1,
             loading: 1
         };
     },
@@ -54,6 +57,7 @@ module.exports = {
                 self.loading = 0
                 self.list = data.list;
                 self.page = data.page;
+                self.total = data.total;
             });
         },
         doSearch: function () {
@@ -71,6 +75,12 @@ module.exports = {
                 }, function (reason) {
                     loading.show(reason.statusInfo || '删除失败!', 2000, 'error')
                 })
+        }
+    },
+    events: {
+        'pager-change': function (page) {
+            this.page = page;
+            this.refresh();
         }
     }
 }

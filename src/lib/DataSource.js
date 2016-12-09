@@ -23,12 +23,15 @@ function request(name, options) {
         options.url = res.url;
     }
 
-    options.data = $.extend(
-        {},
-        window.PARAM_DATA,
-        res && res.params,
-        options.data
-    );
+    // 设置不处理data字段,用于FormData上传
+    if (false !== options.processData) {
+        options.data = $.extend(
+            {},
+            window.PARAM_DATA,
+            res && res.params,
+            options.data
+        );
+    }
     options.dataType = options.dataType || 'json';
 
     options.type = (options.type || 'get').toLowerCase();

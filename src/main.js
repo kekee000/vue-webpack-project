@@ -14,6 +14,9 @@ var VueValidator = require('vue-validator')
 Vue.use(VueValidator)
 Vue.use(VueRouter)
 
+// datasource
+Vue.prototype.$datasource = require('./datasource');
+
 // 注册验证组件
 require('./lib/framework/validators').use(Vue)
 
